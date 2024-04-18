@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Problems</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .question-box {
+            margin: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .reveal-btn,
+        .hide-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reveal-btn:hover,
+        .hide-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .hide-btn {
+            background-color: #ff6347;
+        }
+
+        .hide-btn:hover {
+            background-color: darkred;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 20px;
+        }
+
+        .back {
+            background-color: #4c7eaf;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .back:hover {
+            background-color: #002364;
+            color: white;
+        }
+
+        .back::before {
+            content: '\2190'; /* Unicode character for left arrow */
+            font-size: 18px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="header-container">
+        <h1>Division Problems</h1>
+        <button class="back"><a style="color: white" href="main">Go back</a></button>
+    </div>
+    {% for problem in math_problems %}
+        <div class="question-box">
+            <h2>Question {{ loop.index0 + 1 }}: {{ problem[0] }}</h2>
+            <p>Choices:</p>
+            <ul>
+                <li>A. {{ problem[2][0] }}</li>
+                <li>B. {{ problem[2][1] }}</li>
+                <li>C. {{ problem[2][2] }}</li>
+                <li>D. {{ problem[2][3] }}</li>
+            </ul>
+            <p class="answer-box hidden">Correct Answer: {{ problem[1] }}</p>
+            <button class="reveal-btn" onclick="revealAnswer(this)">Show Answer</button>
+            <button class="hide-btn hidden" onclick="hideAnswer(this)">Hide Answer</button>
+            <hr>
+        </div>
+    {% endfor %}
+
+    <script>
+        function revealAnswer(btn) {
+            var questionBox = btn.closest('.question-box');
+            var answerBox = questionBox.querySelector('.answer-box');
+            var hideBtn = questionBox.querySelector('.hide-btn');
+
+            answerBox.style.display = 'block';
+            btn.classList.add('hidden');
+            hideBtn.classList.remove('hidden');
+        }
+
+        function hideAnswer(btn) {
+            var questionBox = btn.closest('.question-box');
+            var answerBox = questionBox.querySelector('.answer-box');
+            var revealBtn = questionBox.querySelector('.reveal-btn');
+
+            answerBox.style.display = 'none';
+            btn.classList.add('hidden');
+            revealBtn.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
