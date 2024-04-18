@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofW4xYlL2D+J49RMwj5l+0pVIa6UCJ2n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container mt-4">
+        <div class="row r-1">
+            <!-- Left Side: Two Images -->
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 reduce-gap mt-4 mb-3">
+    <img src="{{ url_for('static', filename='img10.jpg') }}" alt="Image 1" class="img-fluid">
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+    <img src="{{ url_for('static', filename='img7.jpg') }}" alt="Image 3" class="img-fluid">
+</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 reduce-gap">
+    <img src="{{ url_for('static', filename='img8.jpg') }}" alt="Image 2" class="img-fluid">
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-6">
+    <img src="{{ url_for('static', filename='img9.jpg') }}" alt="Image 4" style="margin-top: 20px;" class="img-fluid">
+</div>
+                </div>
+            </div>
+
+            <!-- Right Side: Text Content -->
+            <div class="col-lg-6">
+                <h2 class="t">About Us</h2>
+                <p>
+                    Welcome to Our Website! We are dedicated to providing an engaging and rewarding learning experience.
+                    Our platform is designed to make education an exciting journey for everyone.
+                </p>
+                <p>
+                    At Our Website, we offer support across a range of subjects, from math to history and beyond. Our goal is to
+                    provide personalized assistance that makes learning engaging and accessible for all.
+                </p>
+            </div>
+        </div>
+
+        <!-- Three Boxes Section -->
+        <div class="row mt-5 mb-5 cards">
+    <div class="col-12 col-sm-12 col-md-4">
+        <div class="card expandable" style="background-color: #edf2fb">
+            <div class="card-body e1">
+                <h5 class="card-title">What We Do</h5>
+                <p class="card-text">Explore our diverse range of subjects and educational materials.</p>
+                <p class="hidden-paragraph">At Our Website, we provide comprehensive resources and materials
+                    across various subjects, ensuring a fulfilling learning experience for all.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-4">
+        <div class="card expandable" style="background-color: #bae0f3">
+            <div class="card-body e1">
+                <h5 class="card-title">Our Approach</h5>
+                <p class="card-text">Discover our innovative and student-centric approach to learning.</p>
+                <p class="hidden-paragraph">At Our Website, we offer personalized support across a diverse range
+                    of subjects, tailored to meet your unique educational needs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-4">
+        <div class="card expandable" style="background-color: #87ceeb">
+            <div class="card-body e1">
+                <h5 class="card-title">The Process</h5>
+                <p class="card-text">Learn how we deliver quality education step-by-step.</p>
+                <p class="hidden-paragraph">At Our Website, we follow a structured approach to education delivery,
+                    ensuring quality and effectiveness every step of the way.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+    <!-- Bootstrap JS (optional, for certain components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-eLAP6bKlO5l/T2QrmMIIpH6iPDlp64v5YFwnWhJTRdx2Sz4O+ea50C2ow8wtaCCF"
+        crossorigin="anonymous"></script>
+</body>
+
+<style>
+    @media (min-width: 768px) {
+        .card{
+            margin-top: -20px;
+        }
+    }
+     @media (max-width: 768px) {
+         .t{
+        margin-top: 10px; /* Reduce or eliminate negative margins for small screens */
+    }
+    .reduce-gap {
+        margin-right: 0; /* Reduce or eliminate negative margins for small screens */
+    }
+    .higher {
+        margin-top: 0;
+    }
+}
+
+.reduce-gap {
+    margin-right: -10px; /* Adjust for larger screens if necessary */
+}
+
+.higher {
+    margin-top: -10px;
+}
+
+.expandable {
+    overflow: hidden;
+    max-height: 140px; /* Initial max-height for all screens */
+    transition: max-height 0.3s ease;
+}
+
+.expandable.expanded {
+    max-height: 1000px; /* Max height when expanded */
+}
+    .expandable .card-body {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform-origin: bottom;
+        transition: transform 0.3s ease;
+    }
+    .expandable.expanded {
+        max-height: 1000px; /* Adjust the value to accommodate the expanded content */
+    }
+
+    .expandable .card-body p.hidden-paragraph {
+        visibility: hidden; /* Hide the second <p> by default */
+    }
+
+    .expandable.expanded .card-body p.hidden-paragraph {
+        visibility: visible; /* Show the second <p> when the card is expanded */
+    }
+    .expandable .card-body {
+        max-height: 140px; /* Adjust this value based on your needs */
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out; /* Adjust the transition duration */
+    }
+
+    .expandable.expanded .card-body {
+        max-height: 5000px; /* Adjust the value to accommodate the expanded content */
+    }
+</style>
+<script>
+    $(document).ready(function () {
+    $(".expandable").mouseenter(function () {
+        var $this = $(this);
+        $this.addClass("expanded");
+        if ($(window).width() <= 768) {
+            // For smaller screens, adjust scroll to show the card just slightly off the top for better visibility
+            $('html, body').animate({
+                scrollTop: $this.offset().top - 20
+            }, 500);
+        } else {
+            // For larger screens, scroll to the top of the expanded card
+            $('html, body').animate({
+                scrollTop: $this.offset().top
+            }, 500);
+        }
+    });
+
+    $(".expandable").mouseleave(function () {
+        $(this).removeClass("expanded");
+    });
+});
+</script>
+
+</html>
+

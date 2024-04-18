@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Exam Prep Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-dTckSTFm4zy1ZlUoOZsXVR6t9c7S0i6jp1PKEcJqH37O6PKDrE+tcOtLq2/qB9Yba6ur1L/FaLrfkQ0r5QtYFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<nav class="navbar bg-info navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand ml-auto" href="/" style="color: #343a40;"><i class="fas fa-home fa-lg animated-icon"></i></a>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link pl-4" href="/" style="color: #343a40;"><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pl-4" href="about" style="color: #343a40;"><i class="fas fa-info-circle"></i> About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pl-4" href="main" style="color: #343a40;"><i class="fas fa-clipboard"></i> Main</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+
+<style>
+  /* Custom CSS for left-to-right collapsing animation */
+  .navbar-collapse {
+    position: fixed;
+    top: 56px; /* Adjust according to your navbar height */
+    left: -100%; /* Initially hidden */
+    width: 25%;
+    height: 100vh;
+    z-index: 3;
+    background-color: #EAF6F6; /* Calm and lighter blue color for the navbar */
+    transition: left 0.25s ease;
+    overflow: hidden; /* Added overflow property */
+  }
+
+  .navbar-toggler[aria-expanded="true"] + .navbar-collapse,
+  .navbar-collapse.show {
+    left: 0;
+  }
+
+  /* Custom CSS for increased font size and color */
+  .navbar-nav .nav-link {
+    font-size: 1.5rem !important; /* Adjust the value as needed */
+    color: #343a40 !important; /* Dark gray text color */
+    transition: color 0.3s ease; /* Add transition for color change */
+  }
+
+  /* Additional hover effects */
+  .navbar-nav .nav-link:hover {
+    color: #fff !important; /* White text color on hover */
+    background-color: #343a40; /* Dark gray background on hover */
+  }
+
+  /* Custom animation for brand icon */
+  .animated-icon {
+    transform-origin: center;
+    animation: scaleIn 0.5s ease-in-out;
+    color: lightblue;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+
+</body>
+</html>
